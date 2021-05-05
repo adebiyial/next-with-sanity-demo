@@ -9,8 +9,8 @@ export default function Home({ data }) {
       <header className="site-header">
         <div className="container">
           <div className="siteHeader-nav__container">
-            <h1 className="site-header__logo">Next.js + Sanity CMS</h1>
-            <Link href="/">
+            <h1 className="site-header__logo">{siteHeaderData.title}</h1>
+            <Link href={siteHeaderData.repoURL.current}>
               <a className="site-header__cta">Clone Repo</a>
             </Link>
           </div>
@@ -21,15 +21,15 @@ export default function Home({ data }) {
           <div className="homepageHero-container">
             <div className="homepage-copySection__container">
               <section className="homepageHero-copy__section">
-                <h1 className="homepageHero-title">Glass Building At The End Of A Shadowed Street Photo</h1>
-                <p className="homepageHero-subtitle">Photo of a glass building at the end of a tall shadowed street.</p>
-                <Link href="/">
+                <h1 className="homepageHero-title">{homepageData.title}</h1>
+                <p className="homepageHero-subtitle">{homepageData.subtitle}</p>
+                <Link href={homepageData.ctaUrl.current}>
                   <a className="homepageHero-cta">Read the article</a>
                 </Link>
               </section>
               <section className="homepage-graphic__section">
                 <figure>
-                  <img className="homepage-img" src="/glass-building-at-the-end-of-a-shadowed-street.jpg" alt="" />
+                  <img className="homepage-img" src={homepageData.image.url} alt={homepageData.subtitle} />
                   <figcaption>
                     Photo by:{' '}
                     <Link href="https://burst.shopify.com/@justinopk">
