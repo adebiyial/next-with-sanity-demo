@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import client from '../lib/sanity';
 
-export default function Home() {
+export default function Home({ data }) {
+  const { siteHeaderData, homepageData } = data;
+
   return (
     <>
       <header className="site-header">
@@ -41,4 +44,37 @@ export default function Home() {
       </section>
     </>
   );
+}
+
+const siteHeaderQuery = `*[_type == "siteheader"][0] {
+  title,
+  repoURL {
+    current
+  }
+}`;
+
+// Create a query called homepageQuery
+const homepageQuery = `*[_type == "homepage"][0] {
+  title,
+  subtitle,
+  "ctaUrl": cta {
+    current
+        },
+  image {
+    ...asset->
+  }
+}`;
+
+export async function getStaticProps() {
+  const homepageData = await client.fetch(homepageQuery);
+  const siteHeaderData = await client.fetch(siteHeaderQuery);
+
+  const data = { homepageData, siteHeaderData };
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 1,
+  };
 }
