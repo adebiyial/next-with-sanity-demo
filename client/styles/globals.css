@@ -1,16 +1,72 @@
-html,
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-* {
-  box-sizing: border-box;
+.siteHeader-nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.site-header__cta,
+.homepageHero-cta {
+  padding: 10px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #2ea44f;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.homepageHero-container {
+  padding: 80px 0;
+}
+
+.homepage-copySection__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.homepageHero-title {
+  font-size: 70px;
+  line-height: 1;
+}
+
+.homepageHero-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.homepageHero-copy__section {
+  display: grid;
+  row-gap: 32px;
+  justify-items: flex-start;
+}
+
+img {
+  border-radius: inherit;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  margin-top: 8px;
 }
